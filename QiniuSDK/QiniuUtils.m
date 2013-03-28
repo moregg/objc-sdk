@@ -11,6 +11,7 @@
 #import "GTMBase64/GTMBase64.h"
 #import "JSONKit/JSONKit.h"
 
+#import <CommonCrypto/CommonHMAC.h>
 #define kErrorKey @"error"
 #define kErrorDomain @"QiniuErrorDomain"
 
@@ -24,7 +25,28 @@ long long getFileSize(NSString *filePath)
 int calcBlockCount(NSString *filePath) {
     return ceil((double)getFileSize(filePath) / kBlockSize);
 }
-
+NSString* urlEncode(NSString* s){
+    if (!s) {
+        return @"";
+    }
+    NSMutableString *output = [NSMutableString string];
+    const unsigned char *source = (const unsigned char *)[s UTF8String];
+    int sourceLen = strlen((const char *)source);
+    for (int i = 0; i < sourceLen; ++i) {
+        const unsigned char thisChar = source[i];
+        if (thisChar == ' '){
+            [output appendString:@"+"];
+        } else if (thisChar == '.' || thisChar == '-' || thisChar == '_' || thisChar == '~' ||
+                   (thisChar >= 'a' && thisChar <= 'z') ||
+                   (thisChar >= 'A' && thisChar <= 'Z') ||
+                   (thisChar >= '0' && thisChar <= '9')) {
+            [output appendFormat:@"%c", thisChar];
+        } else {
+            [output appendFormat:@"%%%02X", thisChar];
+        }
+    }
+    return output;
+}
 NSString *urlsafeBase64String(NSString *sourceString) {
     return [GTMBase64 stringByWebSafeEncodingData:[sourceString dataUsingEncoding:NSUTF8StringEncoding] padded:TRUE];
 }
@@ -44,7 +66,21 @@ NSString *urlParamsString(NSDictionary *dic) {
     }
     return callbackParamsStr;
 }
-
+NSString *hmacSha1_urlSafeBase64String(NSString* key, NSString* data){
+    
+    const char *secretKeyStr = [key UTF8String];
+    
+    
+    const char *dataStr = [data cStringUsingEncoding:NSUTF8StringEncoding];
+    
+    char digestStr[CC_SHA1_DIGEST_LENGTH];
+    bzero(digestStr, 0);
+    
+    CCHmac(kCCHmacAlgSHA1, secretKeyStr, strlen(secretKeyStr), dataStr, strlen(dataStr), digestStr);
+    
+    return [GTMBase64 stringByWebSafeEncodingBytes:digestStr length:CC_SHA1_DIGEST_LENGTH padded:TRUE];
+    
+}
 NSError *prepareSimpleError(int errorCode, NSString *errorDescription) {
     
     return [NSError errorWithDomain:kErrorDomain code:errorCode userInfo:[NSDictionary dictionaryWithObject:errorDescription forKey:@"error"]];

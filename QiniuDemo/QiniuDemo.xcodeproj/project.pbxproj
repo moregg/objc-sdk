@@ -26,8 +26,9 @@
 		3015C2AA1653D38B004F3042 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3015C2A91653D38B004F3042 /* MobileCoreServices.framework */; };
 		3015C2AF1653FA8A004F3042 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3015C2AE1653FA8A004F3042 /* icon.png */; };
 		3015C2B11653FA8E004F3042 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3015C2B01653FA8E004F3042 /* icon@2x.png */; };
-		30478906166EE289004F10C8 /* libQiniuSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 307ED7F91660D23D0068F1EE /* libQiniuSDK.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		304F247A166F044200E5F798 /* QiniuAuthPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 304F2479166F044200E5F798 /* QiniuAuthPolicy.m */; };
+		DDCC2CC11704439F00FAACD1 /* QiniuUploadAuthPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCC2CAB17042B5F00FAACD1 /* QiniuUploadAuthPolicy.m */; };
+		DDCC2CD41704496300FAACD1 /* libQiniuSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDCC2CD31704496300FAACD1 /* libQiniuSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +49,6 @@
 		30029DE3165386F900167078 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		30029DE5165386F900167078 /* QiniuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QiniuViewController.h; sourceTree = "<group>"; };
 		30029DE6165386F900167078 /* QiniuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QiniuViewController.m; sourceTree = "<group>"; };
-		3015C29D1653C69A004F3042 /* libQiniuSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libQiniuSDK.a; path = "../../../Library/Developer/Xcode/DerivedData/Build/Products/Debug-iphoneos/libQiniuSDK.a"; sourceTree = "<group>"; };
 		3015C29F1653D32F004F3042 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		3015C2A11653D338004F3042 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3015C2A31653D342004F3042 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -59,7 +59,9 @@
 		3015C2B01653FA8E004F3042 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		304F2478166F044100E5F798 /* QiniuAuthPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiniuAuthPolicy.h; sourceTree = "<group>"; };
 		304F2479166F044200E5F798 /* QiniuAuthPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiniuAuthPolicy.m; sourceTree = "<group>"; };
-		307ED7F91660D23D0068F1EE /* libQiniuSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libQiniuSDK.a; path = "../../../../Library/Developer/Xcode/DerivedData/Build/Products/Debug-iphoneos/libQiniuSDK.a"; sourceTree = "<group>"; };
+		DDCC2CAA17042B5F00FAACD1 /* QiniuUploadAuthPolicy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QiniuUploadAuthPolicy.h; sourceTree = "<group>"; };
+		DDCC2CAB17042B5F00FAACD1 /* QiniuUploadAuthPolicy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QiniuUploadAuthPolicy.m; sourceTree = "<group>"; };
+		DDCC2CD31704496300FAACD1 /* libQiniuSDK.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libQiniuSDK.a; path = "../QiniuSDK/build/Release-iphoneos/libQiniuSDK.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,9 +69,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30478906166EE289004F10C8 /* libQiniuSDK.a in Frameworks */,
 				3015C2AA1653D38B004F3042 /* MobileCoreServices.framework in Frameworks */,
 				3015C2A81653D36E004F3042 /* CFNetwork.framework in Frameworks */,
+				DDCC2CD41704496300FAACD1 /* libQiniuSDK.a in Frameworks */,
 				3015C2A41653D342004F3042 /* libz.dylib in Frameworks */,
 				3015C2A21653D338004F3042 /* SystemConfiguration.framework in Frameworks */,
 				3015C2A01653D32F004F3042 /* AssetsLibrary.framework in Frameworks */,
@@ -85,7 +87,7 @@
 		30029DB8165386F900167078 = {
 			isa = PBXGroup;
 			children = (
-				307ED7F91660D23D0068F1EE /* libQiniuSDK.a */,
+				DDCC2CD31704496300FAACD1 /* libQiniuSDK.a */,
 				3015C2B01653FA8E004F3042 /* icon@2x.png */,
 				3015C2AE1653FA8A004F3042 /* icon.png */,
 				30029DCD165386F900167078 /* QiniuDemo */,
@@ -111,7 +113,6 @@
 				3015C2A31653D342004F3042 /* libz.dylib */,
 				3015C2A11653D338004F3042 /* SystemConfiguration.framework */,
 				3015C29F1653D32F004F3042 /* AssetsLibrary.framework */,
-				3015C29D1653C69A004F3042 /* libQiniuSDK.a */,
 				30029DC7165386F900167078 /* UIKit.framework */,
 				30029DC9165386F900167078 /* Foundation.framework */,
 				30029DCB165386F900167078 /* CoreGraphics.framework */,
@@ -124,6 +125,8 @@
 			children = (
 				304F2478166F044100E5F798 /* QiniuAuthPolicy.h */,
 				304F2479166F044200E5F798 /* QiniuAuthPolicy.m */,
+				DDCC2CAA17042B5F00FAACD1 /* QiniuUploadAuthPolicy.h */,
+				DDCC2CAB17042B5F00FAACD1 /* QiniuUploadAuthPolicy.m */,
 				30029DD6165386F900167078 /* QiniuAppDelegate.h */,
 				30029DD7165386F900167078 /* QiniuAppDelegate.m */,
 				30029DDF165386F900167078 /* MainStoryboard_iPhone.storyboard */,
@@ -219,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDCC2CC11704439F00FAACD1 /* QiniuUploadAuthPolicy.m in Sources */,
 				30029DD4165386F900167078 /* main.m in Sources */,
 				30029DD8165386F900167078 /* QiniuAppDelegate.m in Sources */,
 				30029DE7165386F900167078 /* QiniuViewController.m in Sources */,
@@ -314,11 +318,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QiniuDemo/QiniuDemo-Prefix.pch";
 				INFOPLIST_FILE = "QiniuDemo/QiniuDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/Build/Products/Debug-iphoneos\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/QiniuSDK-adjbalkcwoyklrbecwvsnwbsgbtc/Build/Products/Debug-iphoneos\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -331,11 +336,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QiniuDemo/QiniuDemo-Prefix.pch";
 				INFOPLIST_FILE = "QiniuDemo/QiniuDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/Build/Products/Debug-iphoneos\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/QiniuSDK-adjbalkcwoyklrbecwvsnwbsgbtc/Build/Products/Debug-iphoneos\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

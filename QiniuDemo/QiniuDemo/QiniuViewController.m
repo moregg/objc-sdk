@@ -9,7 +9,7 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "QiniuViewController.h"
-#import "QiniuAuthPolicy.h"
+#import "QiniuUploadAuthPolicy.h"
 #import "../../QiniuSDK/QiniuSimpleUploader.h"
 #import "../../QiniuSDK/QiniuResumableUploader.h"
 
@@ -192,7 +192,7 @@
 
 - (NSString *)tokenWithScope:(NSString *)scope
 {
-    QiniuAuthPolicy *policy = [[QiniuAuthPolicy new] autorelease];
+    QiniuUploadAuthPolicy *policy = [[QiniuUploadAuthPolicy new] autorelease];
     policy.scope = scope;
     
     return [policy makeToken:kAccessKey secretKey:kSecretKey];

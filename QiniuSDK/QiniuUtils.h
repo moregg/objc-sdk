@@ -11,9 +11,10 @@
 
 long long getFileSize(NSString *filePath);
 int calcBlockCount(NSString *filePath);
+NSString* urlEncode(NSString* s);
 NSString *urlsafeBase64String(NSString *sourceString);
 NSString *urlParamsString(NSDictionary *dic);
-
+NSString *hmacSha1_urlSafeBase64String(NSString* key, NSString* data);
 NSError *prepareSimpleError(int errorCode, NSString *errorDescription);
 
 NSError *prepareRequestError(ASIHTTPRequest *request);

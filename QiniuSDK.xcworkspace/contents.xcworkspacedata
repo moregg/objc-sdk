@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:QiniuSDK/QiniuSDK.xcodeproj">
+      location = "group:QiniuDemo/../QiniuSDK/QiniuSDK.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:QiniuDemo/QiniuDemo.xcodeproj">

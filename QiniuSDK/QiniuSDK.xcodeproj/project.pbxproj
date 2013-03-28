@@ -37,6 +37,12 @@
 		84164FF916C648390016F70C /* QiniuResumableUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84164FF816C648390016F70C /* QiniuResumableUploader.m */; };
 		84A0694316E9C5EE00CD28B4 /* QiniuBlockUploadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A0694216E9C5EE00CD28B4 /* QiniuBlockUploadTask.m */; };
 		84A0694616EA5F5D00CD28B4 /* QiniuUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A0694516EA5F5D00CD28B4 /* QiniuUtils.m */; };
+		DDCC2CB317042B7D00FAACD1 /* QiniuAPIs.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCC2CAE17042B7D00FAACD1 /* QiniuAPIs.m */; };
+		DDCC2CB417042B7D00FAACD1 /* QiniuSimpleDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCC2CB017042B7D00FAACD1 /* QiniuSimpleDownloader.m */; };
+		DDCC2CB517042B7D00FAACD1 /* UIImageViewForQiniu.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCC2CB217042B7D00FAACD1 /* UIImageViewForQiniu.m */; };
+		DDCC2CC81704483300FAACD1 /* QiniuAPIs.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCC2CAE17042B7D00FAACD1 /* QiniuAPIs.m */; };
+		DDCC2CC91704483300FAACD1 /* UIImageViewForQiniu.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCC2CB217042B7D00FAACD1 /* UIImageViewForQiniu.m */; };
+		DDCC2CCB1704483700FAACD1 /* QiniuSimpleDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCC2CB017042B7D00FAACD1 /* QiniuSimpleDownloader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +127,12 @@
 		84A0694416EA5F5D00CD28B4 /* QiniuUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QiniuUtils.h; path = ../QiniuUtils.h; sourceTree = "<group>"; };
 		84A0694516EA5F5D00CD28B4 /* QiniuUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QiniuUtils.m; path = ../QiniuUtils.m; sourceTree = "<group>"; };
 		84A0694716EB438600CD28B4 /* QiniuUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QiniuUploader.h; path = ../QiniuUploader.h; sourceTree = "<group>"; };
+		DDCC2CAD17042B7D00FAACD1 /* QiniuAPIs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiniuAPIs.h; sourceTree = SOURCE_ROOT; };
+		DDCC2CAE17042B7D00FAACD1 /* QiniuAPIs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiniuAPIs.m; sourceTree = SOURCE_ROOT; };
+		DDCC2CAF17042B7D00FAACD1 /* QiniuSimpleDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiniuSimpleDownloader.h; sourceTree = SOURCE_ROOT; };
+		DDCC2CB017042B7D00FAACD1 /* QiniuSimpleDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiniuSimpleDownloader.m; sourceTree = SOURCE_ROOT; };
+		DDCC2CB117042B7D00FAACD1 /* UIImageViewForQiniu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageViewForQiniu.h; sourceTree = SOURCE_ROOT; };
+		DDCC2CB217042B7D00FAACD1 /* UIImageViewForQiniu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageViewForQiniu.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +209,12 @@
 				3015C2AB1653D9E1004F3042 /* QiniuSimpleUploader.m */,
 				84164FF716C648390016F70C /* QiniuResumableUploader.h */,
 				84164FF816C648390016F70C /* QiniuResumableUploader.m */,
+				DDCC2CAD17042B7D00FAACD1 /* QiniuAPIs.h */,
+				DDCC2CAE17042B7D00FAACD1 /* QiniuAPIs.m */,
+				DDCC2CAF17042B7D00FAACD1 /* QiniuSimpleDownloader.h */,
+				DDCC2CB017042B7D00FAACD1 /* QiniuSimpleDownloader.m */,
+				DDCC2CB117042B7D00FAACD1 /* UIImageViewForQiniu.h */,
+				DDCC2CB217042B7D00FAACD1 /* UIImageViewForQiniu.m */,
 				84A0694416EA5F5D00CD28B4 /* QiniuUtils.h */,
 				84A0694516EA5F5D00CD28B4 /* QiniuUtils.m */,
 				84A0694116E9C5EE00CD28B4 /* QiniuBlockUploadTask.h */,
@@ -419,6 +437,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDCC2CCB1704483700FAACD1 /* QiniuSimpleDownloader.m in Sources */,
+				DDCC2CC81704483300FAACD1 /* QiniuAPIs.m in Sources */,
+				DDCC2CC91704483300FAACD1 /* UIImageViewForQiniu.m in Sources */,
 				30029E28165387CE00167078 /* ASIAuthenticationDialog.m in Sources */,
 				30029E29165387CE00167078 /* ASIDataCompressor.m in Sources */,
 				30029E2A165387CE00167078 /* ASIDataDecompressor.m in Sources */,
@@ -444,6 +465,9 @@
 			files = (
 				30029D74165385F600167078 /* QiniuSDKTests.m in Sources */,
 				304F248B166F151B00E5F798 /* QiniuAuthPolicy.m in Sources */,
+				DDCC2CB317042B7D00FAACD1 /* QiniuAPIs.m in Sources */,
+				DDCC2CB417042B7D00FAACD1 /* QiniuSimpleDownloader.m in Sources */,
+				DDCC2CB517042B7D00FAACD1 /* UIImageViewForQiniu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

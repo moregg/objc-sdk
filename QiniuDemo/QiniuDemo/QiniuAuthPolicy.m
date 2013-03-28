@@ -1,85 +1,39 @@
 //
 //  QiniuAuthPolicy.m
-//  QiniuSDK
+//  iprint
 //
-//  Created by Qiniu Developers on 12-11-2.
-//  Copyright (c) 2012 Shanghai Qiniu Information Technologies Co., Ltd. All rights reserved.
+//  Created by Xiao Huizhe on 12/28/12.
+//  Copyright (c) 2012 Moregg. All rights reserved.
 //
 
 #import "QiniuAuthPolicy.h"
-#import <CommonCrypto/CommonHMAC.h>
-#import "../../QiniuSDK/GTMBase64/GTMBase64.h"
 #import "../../QiniuSDK/JSONKit/JSONKit.h"
-
+#import "../../QiniuSDK/QiniuUtils.h"
+#import "../../QiniuSDK/GTMBase64/GTMBase64.h"
 @implementation QiniuAuthPolicy
 
-@synthesize scope;
-@synthesize callbackUrl;
-@synthesize callbackBodyType;
-@synthesize customer;
-@synthesize expires;
-@synthesize escape;
-
-// Make a token string conform to the UpToken spec.
-
-- (NSString *)makeToken:(NSString *)accessKey secretKey:(NSString *)secretKey
-{
-    const char *secretKeyStr = [secretKey UTF8String];
++(NSString*)downloadToken:(NSString*)key :(NSString*)secret :(NSString*)pattern :(NSDate*)validTo{
+    NSString* json_scope = [[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithLong:[validTo timeIntervalSince1970]], @"E", pattern, @"S", nil] JSONString];
+    NSString* scope = urlsafeBase64String(json_scope);
     
-	NSString *policy = [self marshal];
     
-    NSData *policyData = [policy dataUsingEncoding:NSUTF8StringEncoding];
+    NSString * checksum = hmacSha1_urlSafeBase64String(secret, scope);
     
-    NSString *encodedPolicy = [GTMBase64 stringByWebSafeEncodingData:policyData padded:TRUE];
-    const char *encodedPolicyStr = [encodedPolicy cStringUsingEncoding:NSUTF8StringEncoding];
-    
-    char digestStr[CC_SHA1_DIGEST_LENGTH];
-    bzero(digestStr, 0);
-    
-    CCHmac(kCCHmacAlgSHA1, secretKeyStr, strlen(secretKeyStr), encodedPolicyStr, strlen(encodedPolicyStr), digestStr);
-    
-    NSString *encodedDigest = [GTMBase64 stringByWebSafeEncodingBytes:digestStr length:CC_SHA1_DIGEST_LENGTH padded:TRUE];
-    
-    NSString *token = [NSString stringWithFormat:@"%@:%@:%@",  accessKey, encodedDigest, encodedPolicy];
-    
-	return token;
+    NSString *token = [NSString stringWithFormat:@"%@:%@:%@", key, checksum, scope];
+    return token;
 }
 
-// Marshal as JSON format string.
-
-- (NSString *)marshal
-{
-    time_t deadline;
-    time(&deadline);
-    
-    deadline += (self.expires > 0) ? self.expires : 3600; // 1 hour by default.
-    NSNumber *deadlineNumber = [NSNumber numberWithLongLong:deadline];
-
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    
-    if (self.scope) {
-        [dic setObject:self.scope forKey:@"scope"];
++(NSString*)accessToken:(NSString*)key :(NSString*)secret :(NSURL*)url :(NSString*)body{
+    NSMutableString* baseString = [NSMutableString string];
+    [baseString appendString:url.path];
+    if (url.query.length) {
+        [baseString appendString:@"?"];
+        [baseString appendString:url.query];
     }
-    if (self.callbackUrl) {
-        [dic setObject:self.callbackUrl forKey:@"callbackUrl"];
-    }
-    if (self.callbackBodyType) {
-        [dic setObject:self.callbackBodyType forKey:@"callbackBodyType"];
-    }
-    if (self.customer) {
-        [dic setObject:self.customer forKey:@"customer"];
-    }
+    [baseString appendString:@"\n"];
     
-    [dic setObject:deadlineNumber forKey:@"deadline"];
-    
-    if (self.escape) {
-        NSNumber *escapeNumber = [NSNumber numberWithLongLong:escape];
-        [dic setObject:escapeNumber forKey:@"escape"];
-    }
-    
-    NSString *json = [dic JSONString];
-    
-    return json;
+    [baseString appendString:body];
+    NSString * checksum = hmacSha1_urlSafeBase64String(secret, baseString);
+    return [NSString stringWithFormat:@"%@:%@", key, checksum];
 }
-
 @end
