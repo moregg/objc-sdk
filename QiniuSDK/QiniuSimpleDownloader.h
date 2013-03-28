@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ASIHTTPRequest/ASIFormDataRequest.h"
+#import "ASIFormDataRequest.h"
 @protocol QiniuDownloadDelegate
 -(void)downloadDone:(BOOL)succeed :(NSData*)data;
 @end

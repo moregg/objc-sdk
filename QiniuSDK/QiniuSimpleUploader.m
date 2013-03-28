@@ -9,9 +9,9 @@
 #import "QiniuConfig.h"
 #import "QiniuSimpleUploader.h"
 #import "QiniuUtils.h"
-#import "ASIHTTPRequest/ASIFormDataRequest.h"
-#import "GTMBase64/GTMBase64.h"
-#import "JSONKit/JSONKit.h"
+#import "ASIFormDataRequest.h"
+#import "GTMBase64.h"
+#import "JSONKit.h"
 
 #define kFilePathKey @"filePath"
 #define kHashKey @"hash"

@@ -8,8 +8,8 @@
 
 #import "QiniuUtils.h"
 #import "QiniuConfig.h"
-#import "GTMBase64/GTMBase64.h"
-#import "JSONKit/JSONKit.h"
+#import "GTMBase64.h"
+#import "JSONKit.h"
 
 #import <CommonCrypto/CommonHMAC.h>
 #define kErrorKey @"error"

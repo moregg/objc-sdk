@@ -8,10 +8,10 @@
 
 #import "QiniuUploadAuthPolicy.h"
 #import <CommonCrypto/CommonHMAC.h>
-#import "../../QiniuSDK/GTMBase64/GTMBase64.h"
-#import "../../QiniuSDK/JSONKit/JSONKit.h"
-#import "../../QiniuSDK/QiniuConfig.h"
-#import "../../QiniuSDK/QiniuUtils.h"
+#import "GTMBase64.h"
+#import "JSONKit.h"
+#import "QiniuConfig.h"
+#import "QiniuUtils.h"
 
 @implementation QiniuUploadAuthPolicy
 

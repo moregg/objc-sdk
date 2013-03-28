@@ -10,8 +10,8 @@
 #import "QiniuBlockUploadTask.h"
 #import "QiniuConfig.h"
 #import "QiniuUtils.h"
-#import "GTMBase64/GTMBase64.h"
-#import "JSONKit/JSONKit.h"
+#import "GTMBase64.h"
+#import "JSONKit.h"
 
 #define kHashKey @"hash"
 

@@ -544,6 +544,12 @@
 				DSTROOT = /tmp/QiniuSDK.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QiniuSDK/QiniuSDK-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/**",
+					"$(SRCROOT)/JSONKit/**",
+					"$(SRCROOT)/GTMBase64/**",
+					"$(SRCROOT)/ASIHttpRequest/**",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -556,6 +562,12 @@
 				DSTROOT = /tmp/QiniuSDK.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QiniuSDK/QiniuSDK-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/**",
+					"$(SRCROOT)/JSONKit/**",
+					"$(SRCROOT)/GTMBase64/**",
+					"$(SRCROOT)/ASIHttpRequest/**",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ASIHttpRequest/ASIHTTPRequest.h"
+#import "ASIHTTPRequest.h"
 
 long long getFileSize(NSString *filePath);
 int calcBlockCount(NSString *filePath);

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ASIHTTPRequest/ASIFormDataRequest.h"
+#import "ASIFormDataRequest.h"
 
 // ------------------------------------------------------------------------------------
 // Block upload delegates.

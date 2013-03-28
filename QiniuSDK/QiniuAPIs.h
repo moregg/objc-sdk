@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ASIHTTPRequest/ASIFormDataRequest.h"
+#import "ASIFormDataRequest.h"
 
 #define kAPIHost @"http://rs.qbox.me"
 typedef void (^ConfigRequest)(ASIFormDataRequest* something);

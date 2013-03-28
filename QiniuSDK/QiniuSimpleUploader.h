@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "QiniuUploadDelegate.h"
 #import "QiniuUploader.h"
-#import "ASIHTTPRequest/ASIFormDataRequest.h"
+#import "ASIFormDataRequest.h"
 
 // Upload local file to Qiniu Cloud Service with one single request.
 //

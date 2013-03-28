@@ -7,9 +7,9 @@
 //
 
 #import "QiniuAuthPolicy.h"
-#import "../../QiniuSDK/JSONKit/JSONKit.h"
-#import "../../QiniuSDK/QiniuUtils.h"
-#import "../../QiniuSDK/GTMBase64/GTMBase64.h"
+#import "JSONKit.h"
+#import "QiniuUtils.h"
+#import "GTMBase64.h"
 @implementation QiniuAuthPolicy
 
 +(NSString*)downloadToken:(NSString*)key :(NSString*)secret :(NSString*)pattern :(NSDate*)validTo{
