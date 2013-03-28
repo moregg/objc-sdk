@@ -35,7 +35,7 @@
     self.downloader = nil;
     [super setImage:image];
 }
--(void)setImageWithQiniu:(NSString*)buck :(NSString*)ID :(UIImage*)loadingImage :(UIImage*)_errorImage{
+-(void)setImageWithQiniu:(NSString*)token :(NSString*)buck :(NSString*)ID :(UIImage*)loadingImage :(UIImage*)_errorImage{
     
     NSData* cache = [QiniuSimpleDownloader getCache:buck :ID :IMAGE_EXTENSION];
     UIImage* cachedImage = [UIImage imageWithData:cache];
@@ -46,7 +46,7 @@
         
         [super setImage:loadingImage];
         
-        self.downloader = [QiniuSimpleDownloader downloader];
+        self.downloader = [[[QiniuSimpleDownloader alloc] initWithToken:token] autorelease];
         self.downloader.delegate = self;
         [self.downloader download:buck :ID :IMAGE_EXTENSION];
     }

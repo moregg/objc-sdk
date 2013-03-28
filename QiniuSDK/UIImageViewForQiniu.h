@@ -11,6 +11,6 @@
 @interface UIImageViewForQiniu :UIImageView<QiniuDownloadDelegate>
 @property (nonatomic, retain) UIImage* errorImage;
 @property (nonatomic, retain) QiniuSimpleDownloader* downloader;
--(void)setImageWithQiniu:(NSString*)buck :(NSString*)ID :(UIImage*)loadingImage :(UIImage*)errorImage;
+-(void)setImageWithQiniu:(NSString*)token :(NSString*)buck :(NSString*)ID :(UIImage*)loadingImage :(UIImage*)errorImage;
 +(void)setImageCache:(UIImage*)i :(NSString*)buck :(NSString*)ID;
 @end
